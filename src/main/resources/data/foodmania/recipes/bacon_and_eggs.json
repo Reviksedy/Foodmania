@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:egg"
+        },
+        {
+            "item": "minecraft:cooked_porkchop"
+        }
+    ],
+    "result": {
+        "item": "foodmania:bacon_and_eggs",
+        "count": 1
+    }
+}

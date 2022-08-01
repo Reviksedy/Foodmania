@@ -1,0 +1,60 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [16, 32],
+	"textures": {
+		"0": "foodmania:block/corn_stage2",
+		"particle": "foodmania:block/corn_stage2"
+	},
+	"elements": [
+		{
+			"from": [0, -1, 4],
+			"to": [16, 31, 4],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 1, 0.5], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 1, 0.5], "texture": "#0"},
+				"up": {"uv": [0, 0, 1, 0.5], "texture": "#0"},
+				"down": {"uv": [0, 0, 1, 0.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0, -1, 12],
+			"to": [16, 31, 12],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 1, 0.5], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 1, 0.5], "texture": "#0"},
+				"up": {"uv": [0, 0, 1, 0.5], "texture": "#0"},
+				"down": {"uv": [0, 0, 1, 0.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [12, -1, 0],
+			"to": [12, 31, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 16, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 1, 0.5], "texture": "#0"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 1, 0.5], "texture": "#0"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 1, 0.5], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [0, 0, 1, 0.5], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"from": [4, -1, 0],
+			"to": [4, 31, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 16, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 1, 0.5], "texture": "#0"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 1, 0.5], "texture": "#0"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 1, 0.5], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [0, 0, 1, 0.5], "rotation": 90, "texture": "#0"}
+			}
+		}
+	]
+}
