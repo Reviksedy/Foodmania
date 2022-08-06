@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "foodmania:rice_bowl"
+    },
+    "title": "+15 Social Credit",
+    "description": "Obtain a Rice Bowl",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent":  "foodmania:foodmania",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "foodmania:rice_bowl"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 15
+  }
+}

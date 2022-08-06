@@ -1,0 +1,17 @@
+{
+    "type": "foodmania:grilling",
+    "ingredients": [
+        {
+            "item": "foodmania:cooked_bacon"
+        },
+        {
+            "item": "minecraft:egg"
+        },
+        {
+            "item": "foodmania:cooked_bacon"
+        }
+    ],
+    "output": {
+        "item": "foodmania:bacon_and_eggs"
+    }
+}

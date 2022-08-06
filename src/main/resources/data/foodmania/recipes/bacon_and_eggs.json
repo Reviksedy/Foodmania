@@ -1,15 +1,17 @@
 {
-    "type": "minecraft:crafting_shapeless",
+    "type": "foodmania:grilling",
     "ingredients": [
         {
             "item": "minecraft:egg"
         },
         {
-            "item": "minecraft:cooked_porkchop"
+            "item": "foodmania:cooked_bacon"
+        },
+        {
+            "item": "foodmania:cooked_bacon"
         }
     ],
-    "result": {
-        "item": "foodmania:bacon_and_eggs",
-        "count": 1
+    "output": {
+        "item": "foodmania:bacon_and_eggs"
     }
 }
