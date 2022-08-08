@@ -50,8 +50,8 @@ public class GrillBlockEntity extends BlockEntity implements MenuProvider {
     private int progress = 0;
     private int maxProgress = 144;
 
-    private int burnTime = 0;
-    private int maxBurnTime = 216;
+    private int burnTime = 360;
+    private int maxBurnTime = 360;
 
     public GrillBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.GRILL_BLOCK_ENTITY.get(), pWorldPosition, pBlockState);
@@ -157,24 +157,27 @@ public class GrillBlockEntity extends BlockEntity implements MenuProvider {
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, GrillBlockEntity pBlockEntity) {
 
-        if(hasRecipe(pBlockEntity)) {
+        if (pBlockEntity.burnTime >= pBlockEntity.maxBurnTime && hasCoalInFuelSlot(pBlockEntity) && hasRecipe(pBlockEntity)) {
+            pBlockEntity.burnTime = 0;
+            pBlockEntity.itemHandler.extractItem(3,1, false);
+        }
 
-
+        if (hasRecipe(pBlockEntity) && pBlockEntity.burnTime < pBlockEntity.maxBurnTime) {
             pBlockEntity.progress++;
-            pLevel.setBlock(pPos, pState.setValue(INACTIVE, false), 3);
-
-
             setChanged(pLevel, pPos, pState);
             if(pBlockEntity.progress >= pBlockEntity.maxProgress) {
-                pBlockEntity.itemHandler.extractItem(3,1, false);
+
                 craftItem(pBlockEntity);
 
             }
-
         }
 
+        if (pBlockEntity.burnTime < pBlockEntity.maxBurnTime) {
+            pBlockEntity.burnTime++;
+            pLevel.setBlock(pPos, pState.setValue(INACTIVE, false), 3);
+        }
 
-        else {
+        if (!hasRecipe(pBlockEntity) || pBlockEntity.burnTime >= pBlockEntity.maxBurnTime) {
             pLevel.setBlock(pPos, pState.setValue(INACTIVE, true), 3);
             if (pBlockEntity.progress != 0){
                 pBlockEntity.progress--;
@@ -194,8 +197,7 @@ public class GrillBlockEntity extends BlockEntity implements MenuProvider {
                 .getRecipeFor(GrillRecipe.Type.INSTANCE, inventory, level);
 
         return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
-                && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem())
-                && hasCoalInFuelSlot(entity);
+                && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
     }
 
     private static boolean hasCoalInFuelSlot(GrillBlockEntity entity) {

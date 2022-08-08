@@ -31,6 +31,10 @@ public class GrillScreen extends AbstractContainerScreen<GrillMenu> {
             blit(pPoseStack, x + 77, y + 23, 176, 0, menu.getScaledProgress(), 17);
         }
         if(menu.isCrafting()) {
+            blit(pPoseStack, x + 111, y + 49, 176, 17, 14, menu.getScaledBurnTime());
+        }
+
+        if(!menu.isCrafting()) {
             blit(pPoseStack, x + 111, y + 49, 176, 17, 14, 14);
         }
     }
