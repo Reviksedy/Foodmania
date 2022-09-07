@@ -1,15 +1,19 @@
 {
   "display": {
     "icon": {
-      "item": "foodmania:rice_bowl"
+      "item": "farmersdelight:cooked_rice"
     },
-    "title": "+15 Social Credit",
-    "description": "Obtain a Rice Bowl",
+    "title": {
+      "translate": "foodmania.advancement.socialcredit"
+    },
+    "description": {
+      "translate": "foodmania.advancement.socialcredit.desc"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent":  "foodmania:foodmania",
+  "parent":  "farmersdelight:main/root",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,7 +21,7 @@
         "items": [
           {
             "items": [
-              "foodmania:rice_bowl"
+              "farmersdelight:cooked_rice"
             ]
           }
         ]

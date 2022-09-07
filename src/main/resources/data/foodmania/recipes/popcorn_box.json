@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        " C "
+    ],
+    "key": {
+        "#": {
+            "item": "foodmania:popcorn"
+        },
+        "C": {
+            "item": "minecraft:paper"
+        }
+    },
+    "result": {
+        "item": "foodmania:popcorn_box",
+        "count": 1
+    }
+}

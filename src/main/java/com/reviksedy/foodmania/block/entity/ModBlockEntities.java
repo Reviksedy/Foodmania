@@ -3,7 +3,6 @@ package com.reviksedy.foodmania.block.entity;
 import com.reviksedy.foodmania.Foodmania;
 import com.reviksedy.foodmania.block.ModBlocks;
 import com.reviksedy.foodmania.block.entity.custom.GrillBlockEntity;
-import com.reviksedy.foodmania.block.entity.custom.PotBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,12 +18,6 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("grill", () ->
                     BlockEntityType.Builder.of(GrillBlockEntity::new,
                             ModBlocks.GRILL.get()).build(null));
-
-    public static final RegistryObject<BlockEntityType<PotBlockEntity>> POT_BLOCK_ENTITY =
-            BLOCK_ENTITIES.register("pot", () ->
-                    BlockEntityType.Builder.of(PotBlockEntity::new,
-                            ModBlocks.POT.get()).build(null));
-
 
 
 

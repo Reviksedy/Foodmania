@@ -5,6 +5,7 @@ import com.reviksedy.foodmania.recipe.GrillRecipe;
 import com.reviksedy.foodmania.screen.GrillMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
@@ -30,8 +31,9 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 import java.util.Optional;
+import java.util.Random;
 
-import static com.reviksedy.foodmania.block.custom.GrillBlock.INACTIVE;
+import static com.reviksedy.foodmania.block.custom.GrillBlock.LIT;
 
 public class GrillBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(5) {
@@ -174,16 +176,29 @@ public class GrillBlockEntity extends BlockEntity implements MenuProvider {
 
         if (pBlockEntity.burnTime < pBlockEntity.maxBurnTime) {
             pBlockEntity.burnTime++;
-            pLevel.setBlock(pPos, pState.setValue(INACTIVE, false), 3);
+            pLevel.setBlock(pPos, pState.setValue(LIT, true), 3);
         }
 
         if (!hasRecipe(pBlockEntity) || pBlockEntity.burnTime >= pBlockEntity.maxBurnTime) {
-            pLevel.setBlock(pPos, pState.setValue(INACTIVE, true), 3);
+            pLevel.setBlock(pPos, pState.setValue(LIT, false), 3);
             if (pBlockEntity.progress != 0){
                 pBlockEntity.progress--;
             }
             setChanged(pLevel, pPos, pState);
         }
+    }
+
+    public static void animationTick(Level level, BlockPos pos, BlockState state, GrillBlockEntity cookingPot) {
+        if (state.getValue(LIT)) {
+            Random random = level.random;
+            if (random.nextFloat() < 0.3F) {
+                double x = (double) pos.getX() + 0.5D + (random.nextDouble() * 0.6D - 0.3D);
+                double y = (double) pos.getY() + 1.2D;
+                double z = (double) pos.getZ() + 0.5D + (random.nextDouble() * 0.6D - 0.3D);
+                level.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0D, 0.0D, 0.0D);
+            }
+        }
+
     }
 
     private static boolean hasRecipe(GrillBlockEntity entity) {

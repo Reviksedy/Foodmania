@@ -1,0 +1,17 @@
+{
+  "type": "foodmania:grilling",
+  "ingredients": [
+    {
+      "item": "farmersdelight:fried_egg"
+    },
+    {
+      "item": "farmersdelight:fried_egg"
+    },
+    {
+      "item": "farmersdelight:bacon"
+    }
+  ],
+  "output": {
+    "item": "farmersdelight:bacon_and_eggs"
+  }
+}

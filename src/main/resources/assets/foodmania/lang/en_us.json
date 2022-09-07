@@ -1,16 +1,12 @@
 {
-  "item.foodmania.bacon_and_eggs": "Bacon and Eggs",
-  "item.foodmania.bacon": "Raw Bacon",
-  "item.foodmania.cooked_bacon": "Cooked Bacon",
   "item.foodmania.corn": "Corn",
+  "item.foodmania.popcorn": "Popcorn",
+  "item.foodmania.popcorn_box": "Box of Popcorn",
   "item.foodmania.corn_seeds": "Corn Seeds",
-  "item.foodmania.ear_of_rice": "Ear of Rice",
-  "item.foodmania.rice": "Rice",
   "item.foodmania.sushi_roll": "Sushi Roll",
-  "item.foodmania.rice_bowl": "Rice Bowl",
   "block.foodmania.corn_plant": "Corn Plant",
   "block.foodmania.wild_corn": "Wild Corn",
-  "block.foodmania.wild_rice": "Wild Rice",
   "block.foodmania.grill": "Grill",
-  "block.foodmania.pot": "Pot"
+  "foodmania.advancement.socialcredit.desc": "Obtain Cooked Rice",
+  "foodmania.advancement.socialcredit": "+15 Social Credit"
 }

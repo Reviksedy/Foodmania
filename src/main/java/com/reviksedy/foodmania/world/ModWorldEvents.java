@@ -2,7 +2,6 @@ package com.reviksedy.foodmania.world;
 
 import com.reviksedy.foodmania.Foodmania;
 import com.reviksedy.foodmania.world.gen.ModCornGeneration;
-import com.reviksedy.foodmania.world.gen.ModRiceGeneration;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -12,6 +11,5 @@ public class ModWorldEvents {
     @SubscribeEvent
     public static void biomeLoadingEvent(final BiomeLoadingEvent event) {
         ModCornGeneration.generateCorn(event);
-        ModRiceGeneration.generateRice(event);
     }
 }

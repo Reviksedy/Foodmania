@@ -1,9 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "foodmania:block/pot" },
-    "facing=east": { "model": "foodmania:block/pot", "y": 90 },
-    "facing=south": { "model": "foodmania:block/pot", "y": 180 },
-    "facing=west": { "model": "foodmania:block/pot", "y": 270 }
-  }
-}
-}

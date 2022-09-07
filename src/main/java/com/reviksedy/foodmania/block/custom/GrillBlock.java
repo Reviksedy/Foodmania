@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -27,15 +28,16 @@ import org.jetbrains.annotations.Nullable;
 
 public class GrillBlock extends BaseEntityBlock {
 
-    public static final BooleanProperty INACTIVE = BooleanProperty.create("inactive");
+    public static final BooleanProperty LIT = BooleanProperty.create("lit");
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     public GrillBlock(Properties properties) {
         super(properties);
+        this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false));
     }
 
-    private static final VoxelShape SHAPE =  Block.box(0, 0, 0, 16, 14, 16);
+    private static final VoxelShape SHAPE =  Block.box(0, 0, 0, 16, 16, 16);
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
@@ -61,7 +63,7 @@ public class GrillBlock extends BaseEntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING, INACTIVE);
+        pBuilder.add(FACING, LIT);
     }
 
     /* BLOCK ENTITY */
@@ -106,7 +108,15 @@ public class GrillBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.GRILL_BLOCK_ENTITY.get(),
-                GrillBlockEntity::tick);
+        if (!pLevel.isClientSide()) {
+            return createTickerHelper(pBlockEntityType, ModBlockEntities.GRILL_BLOCK_ENTITY.get(),
+                    GrillBlockEntity::tick);
+        }
+        else{
+            return createTickerHelper(pBlockEntityType, ModBlockEntities.GRILL_BLOCK_ENTITY.get(),
+                    GrillBlockEntity::animationTick);
+        }
+
+
     }
 }

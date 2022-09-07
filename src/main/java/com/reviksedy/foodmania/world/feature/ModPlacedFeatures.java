@@ -14,7 +14,4 @@ public class ModPlacedFeatures {
             ModConfiguredFeatures.WILD_CORN, RarityFilter.onAverageOnceEvery(32),
             InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
-    public static final Holder<PlacedFeature> WILD_RICE_PLACED = PlacementUtils.register("wild_rice_placed",
-            ModConfiguredFeatures.WILD_RICE, RarityFilter.onAverageOnceEvery(32),
-            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 }

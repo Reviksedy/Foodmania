@@ -1,0 +1,12 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    {
+      "item": "foodmania:corn"
+    }
+  ],
+  "result": {
+    "item": "foodmania:popcorn"
+  },
+  "cookingtime": 200
+}

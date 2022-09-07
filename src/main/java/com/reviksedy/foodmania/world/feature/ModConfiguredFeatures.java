@@ -17,9 +17,4 @@ public class ModConfiguredFeatures {
                     new RandomPatchConfiguration(24, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
                             new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.WILD_CORN.get())))));
 
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_RICE =
-            FeatureUtils.register("wild_rice", Feature.FLOWER,
-                    new RandomPatchConfiguration(24, 5, 3, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
-                            new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.WILD_RICE.get())))));
-
 }

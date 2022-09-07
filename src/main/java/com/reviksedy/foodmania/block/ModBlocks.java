@@ -4,17 +4,13 @@ import com.reviksedy.foodmania.Foodmania;
 
 import com.reviksedy.foodmania.block.custom.CornPlantBlock;
 import com.reviksedy.foodmania.block.custom.GrillBlock;
-import com.reviksedy.foodmania.block.custom.PotBlock;
-import com.reviksedy.foodmania.block.custom.RicePlantBlock;
 import com.reviksedy.foodmania.item.ModItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -32,21 +28,13 @@ public class ModBlocks {
     public static final RegistryObject<Block> CORN_PLANT = registerBlockWithoutBlockItem("corn_plant",
             () -> new CornPlantBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()));
 
-    public static final RegistryObject<Block> RICE_PLANT = registerBlockWithoutBlockItem("rice_plant",
-            () -> new RicePlantBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()));
 
     public static final RegistryObject<Block> WILD_CORN = registerBlock("wild_corn",
-            () -> new DeadBushBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
-
-    public static final RegistryObject<Block> WILD_RICE = registerBlock("wild_rice",
-            () -> new DeadBushBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
+            () -> new TallGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
 
     public static final RegistryObject<Block> GRILL = registerBlock("grill",
             () -> new GrillBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().strength(0.4f).requiresCorrectToolForDrops().lightLevel(
-                    (state) -> state.getValue(GrillBlock.INACTIVE) ? 0 : 12)), CreativeModeTab.TAB_DECORATIONS);
-
-    public static final RegistryObject<Block> POT = registerBlock("pot",
-            () -> new PotBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().strength(0.4f).requiresCorrectToolForDrops()), CreativeModeTab.TAB_DECORATIONS);
+                    (state) -> state.getValue(GrillBlock.LIT) ? 12 : 0)), CreativeModeTab.TAB_DECORATIONS);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

@@ -17,9 +17,6 @@ public class ModMenuTypes {
     public static final RegistryObject<MenuType<GrillMenu>> GRILL_MENU =
             registerMenuType(GrillMenu::new, "grill_menu");
 
-    public static final RegistryObject<MenuType<PotMenu>> POT_MENU =
-            registerMenuType(PotMenu::new, "pot_menu");
-
 
 
     private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory,

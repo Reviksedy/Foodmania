@@ -14,9 +14,6 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<GrillRecipe>> GRILLING_SERIALIZER =
             SERIALIZERS.register("grilling", () -> GrillRecipe.Serializer.INSTANCE);
 
-    public static final RegistryObject<RecipeSerializer<PotRecipe>> POT_COOKING_SERIALIZER =
-            SERIALIZERS.register("pot_cooking", () -> PotRecipe.Serializer.INSTANCE);
-
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);
     }

@@ -1,12 +1,12 @@
 {
   "variants": {
-    "facing=north,inactive=true": { "model": "foodmania:block/grill" },
-    "facing=east,inactive=true": { "model": "foodmania:block/grill", "y": 90 },
-    "facing=south,inactive=true": { "model": "foodmania:block/grill", "y": 180 },
-    "facing=west,inactive=true": { "model": "foodmania:block/grill", "y": 270 },
-    "facing=north,inactive=false": { "model": "foodmania:block/grill_active" },
-    "facing=east,inactive=false": { "model": "foodmania:block/grill_active", "y": 90 },
-    "facing=south,inactive=false": { "model": "foodmania:block/grill_active", "y": 180 },
-    "facing=west,inactive=false": { "model": "foodmania:block/grill_active", "y": 270 }
+    "facing=north,lit=false": { "model": "foodmania:block/grill" },
+    "facing=east,lit=false": { "model": "foodmania:block/grill", "y": 90 },
+    "facing=south,lit=false": { "model": "foodmania:block/grill", "y": 180 },
+    "facing=west,lit=false": { "model": "foodmania:block/grill", "y": 270 },
+    "facing=north,lit=true": { "model": "foodmania:block/grill_active" },
+    "facing=east,lit=true": { "model": "foodmania:block/grill_active", "y": 90 },
+    "facing=south,lit=true": { "model": "foodmania:block/grill_active", "y": 180 },
+    "facing=west,lit=true": { "model": "foodmania:block/grill_active", "y": 270 }
   }
 }
