@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,lit=false": { "model": "foodmania:block/brick_oven" },
+    "facing=east,lit=false": { "model": "foodmania:block/brick_oven", "y": 90 },
+    "facing=south,lit=false": { "model": "foodmania:block/brick_oven", "y": 180 },
+    "facing=west,lit=false": { "model": "foodmania:block/brick_oven", "y": 270 },
+    "facing=north,lit=true": { "model": "foodmania:block/brick_oven_lit" },
+    "facing=east,lit=true": { "model": "foodmania:block/brick_oven_lit", "y": 90 },
+    "facing=south,lit=true": { "model": "foodmania:block/brick_oven_lit", "y": 180 },
+    "facing=west,lit=true": { "model": "foodmania:block/brick_oven_lit", "y": 270 }
+  }
+}

@@ -2,6 +2,7 @@ package com.reviksedy.foodmania.block;
 
 import com.reviksedy.foodmania.Foodmania;
 
+import com.reviksedy.foodmania.block.custom.BrickOvenBlock;
 import com.reviksedy.foodmania.block.custom.CornPlantBlock;
 import com.reviksedy.foodmania.block.custom.GrillBlock;
 import com.reviksedy.foodmania.item.ModItems;
@@ -32,8 +33,16 @@ public class ModBlocks {
     public static final RegistryObject<Block> WILD_CORN = registerBlock("wild_corn",
             () -> new TallGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
 
+
+	public static final RegistryObject<Block> SMOOTH_COBBLESTONE = registerBlock("smooth_cobblestone",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE).noOcclusion()), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
     public static final RegistryObject<Block> GRILL = registerBlock("grill",
             () -> new GrillBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().strength(0.4f).requiresCorrectToolForDrops().lightLevel(
+                    (state) -> state.getValue(GrillBlock.LIT) ? 12 : 0)), CreativeModeTab.TAB_DECORATIONS);
+
+    public static final RegistryObject<Block> BRICK_OVEN = registerBlock("brick_oven",
+            () -> new BrickOvenBlock(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE).noOcclusion().requiresCorrectToolForDrops().lightLevel(
                     (state) -> state.getValue(GrillBlock.LIT) ? 12 : 0)), CreativeModeTab.TAB_DECORATIONS);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {

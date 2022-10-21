@@ -7,6 +7,10 @@
   "block.foodmania.corn_plant": "Corn Plant",
   "block.foodmania.wild_corn": "Wild Corn",
   "block.foodmania.grill": "Grill",
+  "block.foodmania.brick_oven": "Brick Oven",
+  "block.foodmania.smooth_cobblestone": "Smooth Cobblestone",
   "foodmania.advancement.socialcredit.desc": "Obtain Cooked Rice",
-  "foodmania.advancement.socialcredit": "+15 Social Credit"
+  "foodmania.advancement.socialcredit": "+15 Social Credit",
+  "foodmania.advancement.bigboy.desc": "Place a Brick Oven",
+  "foodmania.advancement.bigboy": "Big Boy"
 }

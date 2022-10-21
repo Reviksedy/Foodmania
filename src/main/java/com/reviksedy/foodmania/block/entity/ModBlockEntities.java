@@ -2,6 +2,7 @@ package com.reviksedy.foodmania.block.entity;
 
 import com.reviksedy.foodmania.Foodmania;
 import com.reviksedy.foodmania.block.ModBlocks;
+import com.reviksedy.foodmania.block.entity.custom.BrickOvenBlockEntity;
 import com.reviksedy.foodmania.block.entity.custom.GrillBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,6 +19,11 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("grill", () ->
                     BlockEntityType.Builder.of(GrillBlockEntity::new,
                             ModBlocks.GRILL.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<BrickOvenBlockEntity>> BRICK_OVEN_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("brick_oven", () ->
+                    BlockEntityType.Builder.of(BrickOvenBlockEntity::new,
+                            ModBlocks.BRICK_OVEN.get()).build(null));
 
 
 

@@ -5,6 +5,7 @@ import com.reviksedy.foodmania.block.entity.ModBlockEntities;
 import com.reviksedy.foodmania.item.ModItems;
 import com.mojang.logging.LogUtils;
 import com.reviksedy.foodmania.recipe.ModRecipes;
+import com.reviksedy.foodmania.screen.BrickOvenScreen;
 import com.reviksedy.foodmania.screen.GrillScreen;
 import com.reviksedy.foodmania.screen.ModMenuTypes;
 
@@ -50,13 +51,15 @@ public class Foodmania
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.CORN_PLANT.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WILD_CORN.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.GRILL.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BRICK_OVEN.get(), RenderType.translucent());
         MenuScreens.register(ModMenuTypes.GRILL_MENU.get(), GrillScreen::new);
+        MenuScreens.register(ModMenuTypes.BRICK_OVEN_MENU.get(), BrickOvenScreen::new);
 
     }
 
     private void setup(final FMLCommonSetupEvent event)
     {
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        LOGGER.info("HEY BRO");
+        LOGGER.info("CHECK OUT THIS BEDROCK BLOCK >> {}", Blocks.BEDROCK.getRegistryName());
     }
 }

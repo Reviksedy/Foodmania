@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "foodmania:grill"
+    "foodmania:grill",
+    "foodmania:smooth_cobblestone"
   ]
 }
