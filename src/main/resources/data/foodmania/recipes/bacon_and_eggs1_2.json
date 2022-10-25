@@ -9,6 +9,9 @@
     },
     {
       "item": "farmersdelight:bacon"
+    },
+    {
+      "item": "minecraft:bowl"
     }
   ],
   "output": {

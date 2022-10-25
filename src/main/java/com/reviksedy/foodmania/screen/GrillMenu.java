@@ -27,7 +27,7 @@ public class GrillMenu extends AbstractContainerMenu {
     public GrillMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data, ContainerData data2) {
 
         super(ModMenuTypes.GRILL_MENU.get(), pContainerId);
-        checkContainerSize(inv, 5);
+        checkContainerSize(inv, 6);
         blockEntity = ((GrillBlockEntity) entity);
         this.level = inv.player.level;
         this.data = data;
@@ -41,7 +41,10 @@ public class GrillMenu extends AbstractContainerMenu {
             this.addSlot(new SlotItemHandler(handler, 1, 37, 29));
             this.addSlot(new SlotItemHandler(handler, 2, 57, 29));
             this.addSlot(new SlotItemHandler(handler, 3, 47, 51));
-            this.addSlot(new ModResultSlot(handler, 4, 109, 24));
+            this.addSlot(new SlotItemHandler(handler, 4, 134, 24));
+            this.addSlot(new ModResultSlot(handler, 5, 109, 24));
+
+
         });
 
         addDataSlots(data);
@@ -50,10 +53,6 @@ public class GrillMenu extends AbstractContainerMenu {
 
     public boolean isCrafting() {
         return data.get(0) > 0;
-    }
-
-    public boolean isBurning() {
-        return data2.get(0) > 0;
     }
 
     public int getScaledProgress() {
@@ -88,7 +87,7 @@ public class GrillMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 5;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 6;  // must be the number of slots you have!
 
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {

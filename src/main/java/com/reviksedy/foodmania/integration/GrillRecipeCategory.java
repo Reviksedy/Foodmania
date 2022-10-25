@@ -63,8 +63,8 @@ public class GrillRecipeCategory implements IRecipeCategory<GrillRecipe> {
         builder.addSlot(RecipeIngredientRole.INPUT, 47, 10).addIngredients(recipe.getIngredients().get(0));
         builder.addSlot(RecipeIngredientRole.INPUT, 37, 29).addIngredients(recipe.getIngredients().get(1));
         builder.addSlot(RecipeIngredientRole.INPUT, 57, 29).addIngredients(recipe.getIngredients().get(2));
-
-        builder.addSlot(RecipeIngredientRole.INPUT, 47, 51).addIngredients(Ingredient.of(Items.COAL));
+        builder.addSlot(RecipeIngredientRole.INPUT, 47, 51).addIngredients(Ingredient.of(Items.COAL)).addIngredients(Ingredient.of(Items.CHARCOAL));
+        builder.addSlot(RecipeIngredientRole.INPUT, 134, 24).addIngredients(recipe.getIngredients().get(3));
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 109, 24).addItemStack(recipe.getResultItem());
     }

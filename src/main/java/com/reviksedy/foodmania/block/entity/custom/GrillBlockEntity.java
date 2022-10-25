@@ -36,7 +36,7 @@ import java.util.Random;
 import static com.reviksedy.foodmania.block.custom.GrillBlock.LIT;
 
 public class GrillBlockEntity extends BlockEntity implements MenuProvider {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(5) {
+    private final ItemStackHandler itemHandler = new ItemStackHandler(6) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
@@ -216,7 +216,9 @@ public class GrillBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private static boolean hasCoalInFuelSlot(GrillBlockEntity entity) {
-        return entity.itemHandler.getStackInSlot(3).getItem() == Items.COAL;
+        // I know this is dumb but it looks cool
+        boolean containsCoal = entity.itemHandler.getStackInSlot(3).getItem() == Items.COAL || entity.itemHandler.getStackInSlot(3).getItem() == Items.CHARCOAL;
+        return containsCoal;
     }
 
 
@@ -235,9 +237,10 @@ public class GrillBlockEntity extends BlockEntity implements MenuProvider {
             entity.itemHandler.extractItem(0,1, false);
             entity.itemHandler.extractItem(1,1, false);
             entity.itemHandler.extractItem(2,1, false);
+            entity.itemHandler.extractItem(4,1, false);
 
-            entity.itemHandler.setStackInSlot(4, new ItemStack(match.get().getResultItem().getItem(),
-                    entity.itemHandler.getStackInSlot(4).getCount() + 1));
+            entity.itemHandler.setStackInSlot(5, new ItemStack(match.get().getResultItem().getItem(),
+                    entity.itemHandler.getStackInSlot(5).getCount() + 1));
 
             entity.resetProgress();
         }
@@ -248,10 +251,10 @@ public class GrillBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
-        return inventory.getItem(4).getItem() == output.getItem() || inventory.getItem(4).isEmpty();
+        return inventory.getItem(5).getItem() == output.getItem() || inventory.getItem(5).isEmpty();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        return inventory.getItem(4).getMaxStackSize() > inventory.getItem(4).getCount();
+        return inventory.getItem(5).getMaxStackSize() > inventory.getItem(5).getCount();
     }
 }
