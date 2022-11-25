@@ -1,5 +1,6 @@
 package com.reviksedy.foodmania.integration;
 
+import com.reviksedy.foodmania.recipe.BrickOvenRecipe;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.recipe.RecipeType;
@@ -25,12 +26,16 @@ public class JEIFoodmaniaPlugin implements IModPlugin {
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new
                 GrillRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new
+                BrickOvenRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager rm = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
-        List<GrillRecipe> recipes = rm.getAllRecipesFor(GrillRecipe.Type.INSTANCE);
-        registration.addRecipes(new RecipeType<>(GrillRecipeCategory.UID, GrillRecipe.class), recipes);
+        List<GrillRecipe> Grecipes = rm.getAllRecipesFor(GrillRecipe.Type.INSTANCE);
+        List<BrickOvenRecipe> Brecipes = rm.getAllRecipesFor(BrickOvenRecipe.Type.INSTANCE);
+        registration.addRecipes(new RecipeType<>(GrillRecipeCategory.UID, GrillRecipe.class),  Grecipes);
+        registration.addRecipes(new RecipeType<>(BrickOvenRecipeCategory.UID, BrickOvenRecipe.class), Brecipes);
     }
 }

@@ -26,7 +26,7 @@ public class BrickOvenMenu extends AbstractContainerMenu {
     public BrickOvenMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data, ContainerData data2) {
 
         super(ModMenuTypes.BRICK_OVEN_MENU.get(), pContainerId);
-        checkContainerSize(inv, 5);
+        checkContainerSize(inv, 4);
         blockEntity = ((BrickOvenBlockEntity) entity);
         this.level = inv.player.level;
         this.data = data;
@@ -36,11 +36,10 @@ public class BrickOvenMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 47, 10));
-            this.addSlot(new SlotItemHandler(handler, 1, 37, 29));
-            this.addSlot(new SlotItemHandler(handler, 2, 57, 29));
-            this.addSlot(new SlotItemHandler(handler, 3, 47, 51));
-            this.addSlot(new ModResultSlot(handler, 4, 109, 24));
+            this.addSlot(new SlotItemHandler(handler, 0, 50, 15));
+            this.addSlot(new SlotItemHandler(handler, 1, 50, 34));
+            this.addSlot(new SlotItemHandler(handler, 2, 50, 53));
+            this.addSlot(new ModResultSlot(handler, 3, 111, 34));
         });
 
         addDataSlots(data);
@@ -49,10 +48,6 @@ public class BrickOvenMenu extends AbstractContainerMenu {
 
     public boolean isCrafting() {
         return data.get(0) > 0;
-    }
-
-    public boolean isBurning() {
-        return data2.get(0) > 0;
     }
 
     public int getScaledProgress() {
@@ -87,7 +82,7 @@ public class BrickOvenMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 5;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots you have!
 
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {

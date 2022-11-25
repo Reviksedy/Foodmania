@@ -1,6 +1,7 @@
 package com.reviksedy.foodmania.event;
 
 import com.reviksedy.foodmania.Foodmania;
+import com.reviksedy.foodmania.recipe.BrickOvenRecipe;
 import com.reviksedy.foodmania.recipe.GrillRecipe;
 import net.minecraft.core.Registry;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -14,5 +15,7 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerRecipeTypes(final RegistryEvent.Register<RecipeSerializer<?>> event) {
         Registry.register(Registry.RECIPE_TYPE, GrillRecipe.Type.ID, GrillRecipe.Type.INSTANCE);
+        Registry.register(Registry.RECIPE_TYPE, BrickOvenRecipe.Type.ID, BrickOvenRecipe.Type.INSTANCE);
     }
+
 }

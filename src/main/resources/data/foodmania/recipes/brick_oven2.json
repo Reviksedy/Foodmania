@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "CCC",
+        "CRC",
+        "BBB"
+    ],
+    "key": {
+        "C": {
+            "item": "foodmania:smooth_cobblestone"
+        },
+        "R": {
+            "item": "minecraft:charcoal"
+        },
+        "B": {
+            "item": "minecraft:bricks"
+        }
+    },
+    "result": {
+        "item": "foodmania:brick_oven",
+        "count": 1
+    }
+}

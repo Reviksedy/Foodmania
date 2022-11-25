@@ -1,0 +1,14 @@
+{
+  "type": "foodmania:baking",
+  "ingredients": [
+    {
+      "item": "minecraft:empty"
+    },
+    {
+      "item": "farmersdelight:wheat_dough"
+    }
+  ],
+  "output": {
+    "item": "minecraft:bread"
+  }
+}

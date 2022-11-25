@@ -28,12 +28,7 @@ public class BrickOvenRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
-        return recipeItems.get(0).test(pContainer.getItem(0)) && recipeItems.get(1).test(pContainer.getItem(1)) && recipeItems.get(2).test(pContainer.getItem(2)) ||
-                recipeItems.get(0).test(pContainer.getItem(0)) && recipeItems.get(1).test(pContainer.getItem(2)) && recipeItems.get(2).test(pContainer.getItem(1)) ||
-                recipeItems.get(0).test(pContainer.getItem(1)) && recipeItems.get(1).test(pContainer.getItem(2)) && recipeItems.get(2).test(pContainer.getItem(0)) ||
-                recipeItems.get(0).test(pContainer.getItem(1)) && recipeItems.get(1).test(pContainer.getItem(0)) && recipeItems.get(2).test(pContainer.getItem(2)) ||
-                recipeItems.get(0).test(pContainer.getItem(2)) && recipeItems.get(1).test(pContainer.getItem(1)) && recipeItems.get(2).test(pContainer.getItem(0)) ||
-                recipeItems.get(0).test(pContainer.getItem(2)) && recipeItems.get(1).test(pContainer.getItem(0)) && recipeItems.get(2).test(pContainer.getItem(1));
+        return recipeItems.get(0).test(pContainer.getItem(0)) && recipeItems.get(1).test(pContainer.getItem(1));
     }
 
     @Override
@@ -89,7 +84,7 @@ public class BrickOvenRecipe implements Recipe<SimpleContainer> {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(3, Ingredient.EMPTY);
+            NonNullList<Ingredient> inputs = NonNullList.withSize(2, Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));

@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class BrickOvenScreen extends AbstractContainerScreen<BrickOvenMenu> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(Foodmania.MOD_ID, "textures/gui/grill_gui.png");
+            new ResourceLocation(Foodmania.MOD_ID, "textures/gui/brick_oven_gui.png");
 
     public BrickOvenScreen(BrickOvenMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
@@ -28,15 +28,15 @@ public class BrickOvenScreen extends AbstractContainerScreen<BrickOvenMenu> {
         this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
 
         if(menu.isCrafting()) {
-            blit(pPoseStack, x + 77, y + 23, 176, 0, menu.getScaledProgress(), 17);
+            blit(pPoseStack, x + 76, y + 34, 176, 0, menu.getScaledProgress(), 17);
         }
         if(menu.isCrafting()) {
-            blit(pPoseStack, x + 111, y + 49, 176, 17, 14, menu.getScaledBurnTime());
+            blit(pPoseStack, x + 113, y + 58, 176, 17, 14, menu.getScaledBurnTime());
+        }
+        if(!menu.isCrafting()) {
+            blit(pPoseStack, x + 113, y + 58, 176, 17, 14, 14);
         }
 
-        if(!menu.isCrafting()) {
-            blit(pPoseStack, x + 111, y + 49, 176, 17, 14, 14);
-        }
     }
 
     @Override

@@ -37,7 +37,7 @@ import java.util.Random;
 import static com.reviksedy.foodmania.block.custom.BrickOvenBlock.LIT;
 
 public class BrickOvenBlockEntity extends BlockEntity implements MenuProvider {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(5) {
+    private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
@@ -162,8 +162,9 @@ public class BrickOvenBlockEntity extends BlockEntity implements MenuProvider {
 
         if (pBlockEntity.burnTime >= pBlockEntity.maxBurnTime && hasCoalInFuelSlot(pBlockEntity) && hasRecipe(pBlockEntity)) {
             pBlockEntity.burnTime = 0;
-            pBlockEntity.itemHandler.extractItem(3,1, false);
+            pBlockEntity.itemHandler.extractItem(2,1, false);
         }
+
 
         if (hasRecipe(pBlockEntity) && pBlockEntity.burnTime < pBlockEntity.maxBurnTime) {
             pBlockEntity.progress++;
@@ -217,7 +218,15 @@ public class BrickOvenBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private static boolean hasCoalInFuelSlot(BrickOvenBlockEntity entity) {
-        return entity.itemHandler.getStackInSlot(3).getItem() == Items.COAL;
+        // I know this is dumb but it looks cool
+        boolean containsCoal = entity.itemHandler.getStackInSlot(2).getItem() == Items.COAL || entity.itemHandler.getStackInSlot(2).getItem() == Items.CHARCOAL;
+        return containsCoal;
+    }
+
+    private static boolean hasAirSlot(BrickOvenBlockEntity entity) {
+        // I know this is dumb but it looks cool
+        boolean containsAir = entity.itemHandler.getStackInSlot(0).getItem() == Items.AIR;
+        return containsAir;
     }
 
 
@@ -235,10 +244,9 @@ public class BrickOvenBlockEntity extends BlockEntity implements MenuProvider {
         if(match.isPresent()) {
             entity.itemHandler.extractItem(0,1, false);
             entity.itemHandler.extractItem(1,1, false);
-            entity.itemHandler.extractItem(2,1, false);
 
-            entity.itemHandler.setStackInSlot(4, new ItemStack(match.get().getResultItem().getItem(),
-                    entity.itemHandler.getStackInSlot(4).getCount() + 1));
+            entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem().getItem(),
+                    entity.itemHandler.getStackInSlot(3).getCount() + 1));
 
             entity.resetProgress();
         }
@@ -249,10 +257,10 @@ public class BrickOvenBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
-        return inventory.getItem(4).getItem() == output.getItem() || inventory.getItem(4).isEmpty();
+        return inventory.getItem(3).getItem() == output.getItem() || inventory.getItem(3).isEmpty();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        return inventory.getItem(4).getMaxStackSize() > inventory.getItem(4).getCount();
+        return inventory.getItem(3).getMaxStackSize() > inventory.getItem(3).getCount();
     }
 }
